@@ -1,9 +1,7 @@
 package com.api.superaapi.entities;
 
-
-import jakarta.validation.constraints.Digits;
-import org.hibernate.annotations.Type;
-
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
@@ -12,10 +10,11 @@ import java.util.UUID;
 @Table(name="transferencia")
 public class Transferencia {
 
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
-	@Column(nullable = false,length = 50)
+	@Column(nullable = false, length = 50)
 	private Date data_transferencia;
 
 	@Column(precision = 20, scale = 2)
