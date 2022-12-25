@@ -17,7 +17,7 @@ public class Conta{
 	private String  nome_responsavel;
 	@OneToOne
 	@JoinColumn(name = "id")
-	private Transferencia transferencia;
+	private Transaction transaction;
 	
 	
 	public Conta() {
@@ -40,11 +40,11 @@ public class Conta{
 		this.nome_responsavel = nome_responsavel;
 	}
 
-	public Transferencia getTransferencia() {
-		return transferencia;
+	public Transaction getTransaction() {
+		return transaction;
 	}
 
-	public void setTransferencia(Transferencia transferencia) {
-		this.transferencia = transferencia;
+	public void setTransaction(Transaction transaction) {
+		this.transaction = transaction;
 	}
 }

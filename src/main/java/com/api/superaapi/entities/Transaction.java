@@ -3,19 +3,20 @@ package com.api.superaapi.entities;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Table(name="transferencia")
-public class Transferencia {
+public class Transaction {
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 	@Column(nullable = false, length = 50)
-	private Date data_transferencia;
+	private LocalDate data_transferencia;
 
 	@Column(precision = 20, scale = 2)
 	private Float valor ;
@@ -24,12 +25,12 @@ public class Transferencia {
 	@Column(nullable = false,length = 50)
 	private String nome_operador_transacao ;
 
-	@OneToOne(mappedBy ="transferencia" ,cascade = CascadeType.ALL)
+	@OneToOne(mappedBy ="transaction" ,cascade = CascadeType.ALL)
 	@JoinColumn(name = "conta_id", referencedColumnName = "id_conta")
 	private Conta conta;
 
 
-	public Transferencia() {
+	public Transaction() {
 		
 	}
 
@@ -41,11 +42,11 @@ public class Transferencia {
 		this.id = id;
 	}
 
-	public Date getData_transferencia() {
+	public LocalDate getData_transferencia() {
 		return data_transferencia;
 	}
 
-	public void setData_transferencia(Date data_transferencia) {
+	public void setData_transferencia(LocalDate data_transferencia) {
 		this.data_transferencia = data_transferencia;
 	}
 
